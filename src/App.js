@@ -1,19 +1,21 @@
 import './App.css';
-import { Outlet, Link } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
+import Header from './pages/Header';
+import NavBar from './pages/NavBar';
+import Main from './pages/Main';
 
 export default function App() {
   return (
-    <div>
-      <div className="App-header">
-        Header
+    <BrowserRouter>
+      <div style={{ height: '100%' }}>
+        <header style={{ padding: 10, fontSize: 25 }}>
+          <Header />
+        </header>
+        <section style={{ display: 'flex', height: '100%' }}>
+          <NavBar />
+          <Main />
+        </section>
       </div>
-      <nav>
-        <Link to="/sd_cards">SD cards</Link> |{" "}
-        <Link to="/capacity_types_and_form_factors">Capacity types and form factors</Link> |{" "}
-        <Link to="/speed_classes">Speed classes</Link> |{" "}
-        <Link to="/bus_speeds">Bus speeds</Link>
-      </nav>
-      <Outlet />
-    </div>
+    </BrowserRouter>
   );
 }
